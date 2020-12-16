@@ -3,7 +3,7 @@
 # Python Project : Python script to determine stoichiometric ratios of chemical reactions #2
 # Handle imports
 
-import re
+import re # importing regular expression library
 from sympy import Matrix, lcm # importing matrix and least common multiple
 
 # Welcome to the tool. Input equation reactants and products
@@ -59,9 +59,9 @@ def compoundDecipher(compound, index, side):
 
 
 for i in range(len(reactants)):
-    compoundDecipher(reactants[i], i, 1)
+    compoundDecipher(reactants[i], i, 1) #value is positive
 for i in range(len(products)):
-    compoundDecipher(products[i], i + len(reactants), -1)
+    compoundDecipher(products[i], i + len(reactants), -1) #value is negative
 elementMatrix = Matrix(elementMatrix)
 elementMatrix = elementMatrix.transpose()
 solution = elementMatrix.nullspace()[0]
