@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 # Python Project : Python script to determine stoichiometric ratios of chemical reactions #2
 # Handle imports
 
@@ -7,17 +6,6 @@ import re # importing regular expression library
 from sympy import Matrix, lcm # importing matrix and least common multiple
 
 # Welcome to the tool. Input equation reactants and products
-elementList = []
-elementMatrix = []
-print("Hello aspiring chemist! Please input your reactants. This is case sensitive.")
-print("For example, your input should look like: H2O+Ag3(Fe3O)4")
-reactants = input("Reactants: ")
-print("Please input your products. Again, this is case sensitive.")
-products = input("Products: ")
-reactants = reactants.replace(' ', '').split("+")
-products = products.replace(' ', '').split("+")
-print(reactants)
-print(products)
 
 def addToMatrix(element, index, count, side):
     if index == len(elementMatrix):
@@ -54,6 +42,18 @@ def compoundDecipher(compound, index, side):
         else:
             multiplier = 1
         findElements(segment, index, multiplier, side)
+
+elementList = []
+elementMatrix = []
+print("Hello aspiring chemist! Please input your reactants. This is case sensitive.")
+print("For example, your input should look like: H2O+Ag3(Fe3O)4")
+reactants = input("Reactants: ")
+print("Please input your products. Again, this is case sensitive.")
+products = input("Products: ")
+reactants = reactants.replace(' ', '').split("+")
+products = products.replace(' ', '').split("+")
+print(reactants)
+print(products)
 
 for i in range(len(reactants)):
     compoundDecipher(reactants[i], i, 1) #value is positive
