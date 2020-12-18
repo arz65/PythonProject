@@ -4,8 +4,9 @@
 
 import re # importing regular expression library
 from sympy import Matrix, lcm # importing matrix and least common multiple
+from chempy import mass_fractions
 
-# Welcome to the tool. Input equation reactants and products
+# Welcome to the tool. Input equation reactants and products, receive stoichiometric coefficients as output
 
 def addToMatrix(element, index, count, side):
     if index == len(elementMatrix):
